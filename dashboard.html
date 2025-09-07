@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Manlham Tech Support</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <h1 class="brand">Manlham Tech Support</h1>
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+        <nav>
+          <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button id="toggle-dark" class="btn ghost">Dark Mode</button>
+            </li>
+            <li>
+              <button id="logout-btn" class="btn ghost">Logout</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="user-badge">
+          <div class="avatar" aria-hidden="true">👤</div>
+          <div>
+            <div id="user-name" class="user-name">User</div>
+            <div id="user-role" class="user-role">role</div>
+          </div>
+        </div>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#tickets">Support Tickets</a></li>
+          <li class="admin-only"><a href="#users">User Management</a></li>
+          <li class="admin-only"><a href="#settings">System Settings</a></li>
+          <li class="admin-only">
+            <a href="#dashboard-contact">Contact Support</a>
+          </li>
+        </ul>
+
+        <!-- Logout button in siderbar -->
+         <!-- <button id="sidebar-logout-btn" class="btn ghost" style="margin-top: 1rem; width: 100%;">
+          Logout
+         </button> -->
+      </aside>
+
+      <main class="dashboard">
+        <!-- Overview Section -->
+        <section id="overview" class="container">
+          <h2>Overview</h2>
+          <div class="dashboard-cards">
+            <div class="card">
+              <span class="stat" id="stat-open">0</span>
+              <div>Open Tickets</div>
+            </div>
+            <div class="card">
+              <span class="stat" id="stat-resolved">0</span>
+              <div>Resolved Tickets</div>
+            </div>
+            <div class="card">
+              <span class="stat" id="stat-members">0</span>
+              <div>Team Members</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tickets Section -->
+        <section id="tickets" class="container">
+          <h2>Support Tickets</h2>
+          <form id="ticket-form" class="inline-form">
+            <input
+              type="text"
+              id="ticket-subject"
+              placeholder="Subject"
+              required
+            />
+            <input type="text" id="ticket-assigned" placeholder="Assign To" />
+            <select id="ticket-status">
+              <option value="Open">Open</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+            <button type="submit" class="btn primary">Add Ticket</button>
+          </form>
+
+          <div class="table-tools">
+            <label
+              >Filter:
+              <select id="ticket-filter">
+                <option value="All">All</option>
+                <option value="Open">Open</option>
+                <option value="Resolved">Resolved</option>
+              </select>
+            </label>
+          </div>
+
+          <table class="data-table" id="tickets-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+
+        <!-- User Management Section -->
+        <section id="users" class="container admin-only">
+          <h2>User Management</h2>
+          <form id="create-user-form" class="inline-form">
+            <input
+              type="text"
+              id="new-user-name"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              id="new-user-email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              id="new-user-password"
+              placeholder="Password"
+              required
+            />
+            <select id="new-user-role" required>
+              <option value="user" selected>User</option>
+              <option value="admin">Admin</option>
+            </select>
+            <button type="submit" class="btn primary">Create User</button>
+          </form>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody id="user-list"></tbody>
+          </table>
+        </section>
+
+        <!-- System Settings -->
+        <section id="settings" class="container admin-only">
+          <h2>System Settings</h2>
+          <form id="system-settings-form" class="inline-form">
+            <label>
+              Site Theme:
+              <select id="site-theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </label>
+
+            <label>
+              Default Role for New Users:
+              <select id="default-user-role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+
+            <label>
+              Email Notifications:
+              <input type="checkbox" id="email-notifications" />
+            </label>
+
+            <button type="submit" class="btn primary">Save Settings</button>
+            <p
+              id="system-settings-status"
+              class="form-status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </section>
+
+        <!-- Contact Support -->
+        <section id="dashboard-contact" class="container admin-only">
+          <h2>Contact Support</h2>
+          <form
+            id="dashboardContactForm"
+            action="https://formspree.io/f/xldlydob"
+            method="POST"
+          >
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit" class="btn primary">Send Message</button>
+            <p
+              id="dashboard-contact-status"
+              class="form-status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Manlham Tech Support. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

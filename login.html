@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Manlham Tech Support</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <h1 class="brand">Manlham Tech Support</h1>
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+        <nav>
+          <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button id="toggle-dark" class="btn ghost">Dark Mode</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="auth-container">
+      <div class="auth-card">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Log in to access your dashboard</p>
+
+        <form id="login-form" class="auth-form">
+          <input
+            type="email"
+            id="login-email"
+            placeholder="Email"
+            required
+            autocomplete="username"
+          />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Password"
+            required
+            autocomplete="current-password"
+          />
+          <button type="submit" class="btn primary w-full">Login</button>
+          <p id="login-status" class="form-status" aria-live="polite"></p>
+        </form>
+
+        <!-- Removed "Don’t have an account?" since only admin can sign up -->
+      </div>
+    </main>
+
+    <footer class="auth-footer">
+      <p>&copy; 2025 Manlham Tech Support. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

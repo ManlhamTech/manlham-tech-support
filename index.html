@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Manlham Tech Support</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <h1 class="brand">Manlham Tech Support</h1>
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+        <nav>
+          <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button id="toggle-dark" class="btn ghost">Dark Mode</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h2>Welcome to Manlham Tech Support</h2>
+        <p>Your trusted partner for IT assistance and support.</p>
+        <!-- Changed CTA to Login instead of Sign Up -->
+        <a id="hero-cta" href="#contact" class="btn primary">Get Started</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          We provide reliable IT support and digital solutions for businesses
+          and individuals. From troubleshooting to network setup and
+          consulting—we keep you running.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+          <div class="card">
+            <h3>Technical Support</h3>
+            <p>Quick and reliable troubleshooting for hardware and software.</p>
+          </div>
+          <div class="card">
+            <h3>Networking</h3>
+            <p>Secure, scalable network setup and maintenance.</p>
+          </div>
+          <div class="card">
+            <h3>Consulting</h3>
+            <p>Expert guidance to optimize your IT infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/xldlydob"
+          method="POST"
+          novalidate
+        >
+          <input
+            type="text"
+            name="name"
+            id="contact-name"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            id="contact-email"
+            placeholder="Your Email"
+            required
+          />
+          <textarea
+            name="message"
+            id="contact-message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit" class="btn primary">Send Message</button>
+          <p id="contact-status" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Manlham Tech Support. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
